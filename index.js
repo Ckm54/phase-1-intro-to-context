@@ -45,7 +45,7 @@ function createTimeOutEvent(employeeRecord, timeStamp) {
 function hoursWorkedOnDate(employeerecord, date) {
     const timeIn = getHours(employeerecord.timeInEvents, date)
     const timeOut = getHours(employeerecord.timeOutEvents, date)
-    console.log(timeOut - timeIn)
+    return (timeOut - timeIn) / 100
 }
 
 function getHours(arr, date){
@@ -54,5 +54,11 @@ function getHours(arr, date){
             return arr[i].hour
         }
     }
+}
+
+function wagesEarnedOnDate(employeeRecord, date) {
+    const hoursWorked = hoursWorkedOnDate(employeeRecord, date)
+    const rate = employeeRecord.payPerHour
+    return hoursWorked * rate
 }
 
