@@ -30,4 +30,14 @@ function createTimeInEvent(employeeRecord, timeStamp) {
     return employeeRecord;
 }
 
-
+function createTimeOutEvent(employeeRecord, timeStamp) {
+    const hour = parseInt(timeStamp.split(" ")[1])
+    const date = timeStamp.split(" ")[0]
+    const timeObj = {
+        type: "TimeOut",
+        hour: hour,
+        date: date
+    }
+    employeeRecord["timeOutEvents"].push(timeObj)
+    return employeeRecord;
+}
