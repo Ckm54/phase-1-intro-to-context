@@ -41,3 +41,18 @@ function createTimeOutEvent(employeeRecord, timeStamp) {
     employeeRecord["timeOutEvents"].push(timeObj)
     return employeeRecord;
 }
+
+function hoursWorkedOnDate(employeerecord, date) {
+    const timeIn = getHours(employeerecord.timeInEvents, date)
+    const timeOut = getHours(employeerecord.timeOutEvents, date)
+    console.log(timeOut - timeIn)
+}
+
+function getHours(arr, date){
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i].date === date){
+            return arr[i].hour
+        }
+    }
+}
+
