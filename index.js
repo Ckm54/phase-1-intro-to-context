@@ -9,4 +9,11 @@ function createEmployeeRecord(arr) {
     }
 }
 
-
+function createEmployeeRecords(arr) {
+    let employeeArr = []
+    for(let i=0; i<arr.length; i++){
+        let data = createEmployeeRecord(arr[i])
+        employeeArr.push(data)
+    }
+    return employeeArr
+}
