@@ -62,3 +62,16 @@ function wagesEarnedOnDate(employeeRecord, date) {
     return hoursWorked * rate
 }
 
+function allWagesFor(employeeObj){
+    let events = employeeObj.timeInEvents
+    let wagesArray = []
+    events.forEach(event => {
+        const date = event.date
+        const wage = wagesEarnedOnDate(employeeObj, date)
+        wagesArray.push(wage)
+    });
+
+    const total = wagesArray.reduce((a,b) => a+b)
+    return total
+}
+
