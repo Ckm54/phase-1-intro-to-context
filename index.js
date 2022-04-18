@@ -75,3 +75,13 @@ function allWagesFor(employeeObj){
     return total
 }
 
+function calculatePayroll(employeesArr) {
+    let totals = []
+    employeesArr.forEach(employeeObj => {
+        let pay = allWagesFor(employeeObj)
+        totals.push(pay)
+    })
+    let grandTotal = totals.reduce((a,b) => a+b)
+    return grandTotal
+}
+
